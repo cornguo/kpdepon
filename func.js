@@ -1,13 +1,15 @@
 $(document).keydown(function (e) {
-    if(90 === e.which || 88 === e.which) {
-        switch (e.which) {
-        case 90:
-            play("#pon");
-            break;
-        case 88:
-            play("#ka");
-            break;
-        }
+    switch (e.which) {
+    // x .
+    case 88:
+    case 190:
+        play(".pon");
+        break;
+    // a and '
+    case 65:
+    case 222:
+        play(".ka");
+        break;
     }
 });
 
