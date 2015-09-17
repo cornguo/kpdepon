@@ -23,6 +23,7 @@ function play(id) {
 function reset(id) {
     if (1 === stat[id]) {
         $(id).attr("src", "img.jpg");
+        stat[id] = 0;
     }
 }
 
