@@ -9,13 +9,18 @@
     border-radius: 7px;
 }
 
-#animation img#ka {
+#animation img.flip {
     -moz-transform: scaleX(-1);
     -o-transform: scaleX(-1);
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
     filter: FlipH;
     -ms-filter: "FlipH";
+}
+
+#animation img.ka {
+    margin: 1em 2em;
+    width: 320px;
 }
 
 .glowing {

@@ -39,24 +39,24 @@ function reset(id) {
 
 var sounds = [];
 
-sounds["#pon"] = new Howl({
+sounds[".pon"] = new Howl({
     buffer: true,
     urls: ["pon.wav"]
 });
 
-sounds["#ka"] = new Howl({
+sounds[".ka"] = new Howl({
     buffer: true,
     urls: ["ka.wav"]
 });
 
 var stat = [];
-stat["#pon"] = 0;
-stat["#ka"] = 0;
+stat[".pon"] = 0;
+stat[".ka"] = 0;
 
 $(document).ready(function () {
     var clickType = ((null !== document.ontouchstart)? "click":"touchstart");
-    $("#pon").bind(clickType, function () {play("#pon");});
-    $("#ka").bind(clickType, function () {play("#ka");});
+    $(".pon").bind(clickType, function () {play(".pon");});
+    $(".ka").bind(clickType, function () {play(".ka");});
     setTimeout(function () {
         $('#fb_like iframe:first').attr('src', $('#fb_like iframe:first').data('src'));
     }, 1000);
