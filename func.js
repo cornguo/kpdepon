@@ -16,18 +16,18 @@ $(document).keydown(function (e) {
 function play(id) {
     sounds[id].play();
     if (1 === stat[id]) {
-        reset(id);
+        $(id).attr("src", "./imgs/init.jpg").removeClass("glowing");
         setTimeout(function () {
             $(id).attr("src", "./imgs/down.jpg").addClass("glowing");
-        }, 100);
+        }, 20);
         setTimeout(function () {
             reset(id);
-        }, 600);
+        }, 60);
     } else {
         $(id).attr("src", "./imgs/animate.gif").addClass("glowing");
         setTimeout(function () {
-            reset(id);
-        }, 450);
+            $(id).attr("src", "./imgs/down.jpg").addClass("glowing");
+        }, 100);
         stat[id] = 1;
     }
 }
@@ -41,12 +41,18 @@ var sounds = [];
 
 sounds[".pon"] = new Howl({
     buffer: true,
-    urls: ["pon.wav"]
+    urls: ["pon.wav"],
+    onend: function () {
+        reset(".pon")
+    }
 });
 
 sounds[".ka"] = new Howl({
     buffer: true,
-    urls: ["ka.wav"]
+    urls: ["ka.wav"],
+    onend: function () {
+        reset(".ka")
+    }
 });
 
 var stat = [];
