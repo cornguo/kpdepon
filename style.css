@@ -1,15 +1,15 @@
-#container {
+#animation {
     text-align: center;
 }
 
-#container img {
+#animation img {
     margin: 0.5em 1em;
     padding: 3px;
     border: 2px solid #dadada;
     border-radius: 7px;
 }
 
-#container img#ka {
+#animation img#ka {
     -moz-transform: scaleX(-1);
     -o-transform: scaleX(-1);
     -webkit-transform: scaleX(-1);
