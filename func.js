@@ -12,19 +12,27 @@ $(document).keydown(function (e) {
 });
 
 function play(id) {
-    stat[id] = 1;
     sounds[id].play();
-    $(id).attr("src", "./imgs/img.gif").addClass("glowing");
-    setTimeout(function () {
+    if (1 === stat[id]) {
         reset(id);
-    }, 400);
+        setTimeout(function () {
+            $(id).attr("src", "./imgs/down.jpg").addClass("glowing");
+        }, 100);
+        setTimeout(function () {
+            reset(id);
+        }, 600);
+    } else {
+        $(id).attr("src", "./imgs/animate.gif").addClass("glowing");
+        setTimeout(function () {
+            reset(id);
+        }, 450);
+        stat[id] = 1;
+    }
 }
 
 function reset(id) {
-    if (1 === stat[id]) {
-        $(id).attr("src", "./imgs/img.jpg").removeClass("glowing");
-        stat[id] = 0;
-    }
+    $(id).attr("src", "./imgs/init.jpg").removeClass("glowing");
+    stat[id] = 0;
 }
 
 var sounds = [];
