@@ -17,7 +17,7 @@ function play(id) {
     $(id).attr("src", "img.gif");
     setTimeout(function () {
         reset(id);
-    }, 600);
+    }, 400);
 }
 
 function reset(id) {
