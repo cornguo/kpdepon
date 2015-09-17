@@ -45,4 +45,7 @@ stat["#ka"] = 0;
 $(document).ready(function (){
     $("#pon").click(function () {play("#pon");});
     $("#ka").click(function () {play("#ka");});
+    setTimeout(function() {
+        $('#fb_like iframe:first').attr('src', $('#fb_like iframe:first').data('src'));
+    }, 1000);
 });
