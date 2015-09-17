@@ -12,31 +12,35 @@ $(document).keydown(function(e) {
 });
 
 function play(id) {
+    stat[id] = 1;
     sounds[id].play();
     $(id).attr("src", "img.gif");
+    setTimeout(function () {
+        reset(id);
+    }, 600);
 }
 
 function reset(id) {
-    $(id).attr("src", "img.jpg");
+    if (1 === stat[id]) {
+        $(id).attr("src", "img.jpg");
+    }
 }
 
 var sounds = [];
 
 sounds["#pon"] = new Howl({
     buffer: true,
-    urls: ["pon.wav"],
-    onend: function () {
-        reset("#pon");
-    }
+    urls: ["pon.wav"]
 });
 
 sounds["#ka"] = new Howl({
     buffer: true,
-    urls: ["ka.wav"],
-    onend: function () {
-        reset("#ka");
-    }
+    urls: ["ka.wav"]
 });
+
+var stat = [];
+stat["#pon"] = 0;
+stat["#ka"] = 0;
 
 $(document).ready(function (){
     $("#pon").click(function () {play("#pon");});
