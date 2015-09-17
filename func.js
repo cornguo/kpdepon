@@ -14,7 +14,7 @@ $(document).keydown(function (e) {
 function play(id) {
     stat[id] = 1;
     sounds[id].play();
-    $(id).attr("src", "img.gif");
+    $(id).attr("src", "img.gif").addClass("glowing");
     setTimeout(function () {
         reset(id);
     }, 400);
@@ -22,7 +22,7 @@ function play(id) {
 
 function reset(id) {
     if (1 === stat[id]) {
-        $(id).attr("src", "img.jpg");
+        $(id).attr("src", "img.jpg").removeClass("glowing");
         stat[id] = 0;
     }
 }
