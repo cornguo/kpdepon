@@ -40,6 +40,10 @@ $(document).ready(function () {
 
     function play(id) {
         sounds[id].play();
+        stat["key"] = id[1];
+        setTimeout(function () {
+            stat["key"] = "-";
+        }, 100);
         if (1 === stat[id]) {
             $(id).attr("src", "./imgs/init.jpg").removeClass("glowing");
             setTimeout(function () {
@@ -68,5 +72,53 @@ $(document).ready(function () {
     setTimeout(function () {
         $('#fb_like iframe:first').attr('src', $('#fb_like iframe:first').data('src'));
     }, 1000);
+
+    // expermintal player
+
+    function logRecordText(key) {
+        $("#recordText").val($("#recordText").val() + key);
+    }
+
+    function playRecordText(pos) {
+        var text = $("#recordText").val();
+        if (pos > text.length) {
+            return;
+        }
+
+        switch (text[pos]) {
+        case "p":
+            play(".pon");
+            break;
+        case "k":
+            play(".ka");
+            break;
+        }
+
+        stat["player"] = setTimeout(function () {
+            playRecordText(pos+1);
+        }, 100)
+    }
+
+    $("#btn_record").bind("click", function () {
+        $("#recordText").val("");
+        stat["player"] = setInterval(function () {
+            logRecordText(stat["key"]);
+        }, 100);
+    });
+
+    $("#btn_play").bind("click", function () {
+        playRecordText(0);
+    });
+
+    $("#btn_stop").bind("click", function () {
+        clearInterval(stat["player"]);
+        stat["player"] = 0;
+        $("#recordText").val($("#recordText").val().replace(/^--+/, '-').replace(/--+$/, '-'));
+    });
+
+    var patterns = ["-p--p--k---ppp-p--k----p--p--k---ppp-p--k-kk-", "-p----k---p-p--p--k-----p----k---p-p--p--k-"];
+    var pattern = patterns[Math.floor(Math.random() * patterns.length)]
+
+    $("#recordText").val("-p----k---p-p--p--k-----p----k----p-p--p---k-");
 
 });
