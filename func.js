@@ -137,11 +137,10 @@ $(document).ready(function () {
         case 81:
             var url = prompt("youtube url?");
             var vidId = url.match(/v=([^&]*)&?/)[1];
-            playBGM(vidId);
+            yt_player.playBGM(vidId);
             break;
         }
     });
-
 
     var clickType = ((null !== document.ontouchstart)? "click":"touchstart");
     $(".pon").bind(clickType, function () {controller.play(".pon");});
