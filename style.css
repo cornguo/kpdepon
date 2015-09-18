@@ -76,6 +76,15 @@ body {
     img {
         width: 50%;
     }
+
+    img .ka {
+        margin: 1em 0;
+    }
+
+    #yt_video {
+        margin: 0 -2em;
+    }
+
     #fork_me {
         display: none;
     }
