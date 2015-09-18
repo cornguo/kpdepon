@@ -94,7 +94,7 @@ $(document).ready(function () {
             clearInterval(stat["player"]);
             stat["player"] = 0;
             $("#recordText").val(
-                $("#recordText").val().replace(/[^-kp]/, '').replace(/^-+/, '').replace(/-+$/, '')
+                $("#recordText").val().replace(/[^-kp]/g, '').replace(/^-+/, '').replace(/-+$/, '')
             );
         }
     };
