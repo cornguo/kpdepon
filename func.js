@@ -85,6 +85,7 @@ $(document).ready(function () {
     }
 
     function playRecordText(pos) {
+        stopRecordText();
         var text = $("#recordText").val();
         if (pos > text.length) {
             return;
@@ -104,6 +105,12 @@ $(document).ready(function () {
         }, 100)
     }
 
+    function stopRecordText(pos) {
+        clearInterval(stat["player"]);
+        stat["player"] = 0;
+        $("#recordText").val($("#recordText").val().replace(/^--+/, '-').replace(/--+$/, '-'));
+    }
+
     $("#btn_record").bind("click", function () {
         $("#recordText").val("");
         stat["player"] = setInterval(function () {
@@ -116,9 +123,7 @@ $(document).ready(function () {
     });
 
     $("#btn_stop").bind("click", function () {
-        clearInterval(stat["player"]);
-        stat["player"] = 0;
-        $("#recordText").val($("#recordText").val().replace(/^--+/, '-').replace(/--+$/, '-'));
+        stopRecordText();
     });
 
     var patterns = ["-p--p--k---ppp-p--k----p--p--k---ppp-p--k-kk-", "-p----k---p-p--p--k-----p----k---p-p--p--k-"];
