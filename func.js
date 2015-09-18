@@ -138,7 +138,7 @@ $(document).ready(function () {
     function playBGM(vidId) {
         var player = new YT.Player('yt_video', {
             height: dimension[0] + 20,
-            width: dimension[1] + 20,
+            width: dimension[1] + 80,
             videoId: vidId,
             events: {
                 onReady: function(e) { e.target.playVideo(); },
@@ -147,7 +147,7 @@ $(document).ready(function () {
                 }
             }
         });
-        $("#yt_video").width(dimension[0] + 20).height(dimension[1] + 20).show();
+        $("#yt_video").width(dimension[0] + 80).height(dimension[1] + 20).show();
         $(".ka").width(dimension[0]).height(dimension[1]);
     };
 
