@@ -8,6 +8,9 @@ $(document).ready(function () {
         "player": 0
     };
 
+    // set animation delay by screen type (i think it's buggy)
+    var delay = (null === document.ontouchstart)? [10, 80, 80, 200]:[20,250,100,250];
+
     // audio fx controller
     var controller = {
         play: function (id) {
@@ -21,18 +24,18 @@ $(document).ready(function () {
                 $(id).attr("src", "./imgs/init.jpg").removeClass("glowing");
                 setTimeout(function () {
                     $(id).attr("src", "./imgs/down.jpg").addClass("glowing");
-                }, 10);
+                }, delay[0]);
                 stat[id] = setTimeout(function () {
                     controller.reset(id);
-                }, 80);
+                }, delay[1]);
             } else {
                 $(id).attr("src", "./imgs/animate.gif").addClass("glowing");
                 setTimeout(function () {
                     $(id).attr("src", "./imgs/down.jpg").addClass("glowing");
-                }, 80);
+                }, delay[2]);
                 stat[id] = setTimeout(function () {
                     controller.reset(id);
-                }, 200);
+                }, delay[3]);
             }
         },
 
