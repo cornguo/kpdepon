@@ -35,6 +35,11 @@ $(document).ready(function () {
         case 222:
             play(".ka");
             break;
+        case 81:
+            var url = prompt("youtube url?");
+            var vidId = url.match(/v=([^&]*)&?/)[1];
+            playBGM(vidId);
+            break;
         }
     });
 
@@ -120,5 +125,30 @@ $(document).ready(function () {
     var pattern = patterns[Math.floor(Math.random() * patterns.length)]
 
     $("#recordText").val(pattern);
+
+
+    // youtube player
+    function playBGM(vidId) {
+        var player = new YT.Player('yt_video', {
+            height: 200,
+            width: 300,
+            videoId: vidId,
+            events: {
+                onReady: function(e) { e.target.playVideo(); },
+                onStateChange: function(e) {
+                    if(e.data == YT.PlayerState.ENDED) { setBGM(getBGMId(vidId)); }
+                }
+            }
+        });
+    };
+
+    function setBGM(vidId) {
+        if("undefined" === typeof(vidId)) {
+            var vidId = getBGMId();
+        }
+
+        $("#yt_video").replaceWith("<div id=\"yt_video\"></div>");
+        playBGM(vidId);
+    }
 
 });
