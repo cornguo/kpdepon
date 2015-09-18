@@ -112,6 +112,7 @@ $(document).ready(function () {
     }
 
     $("#btn_record").bind("click", function () {
+        stopRecordText();
         $("#recordText").val("");
         stat["player"] = setInterval(function () {
             logRecordText(stat["key"]);
