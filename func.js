@@ -140,9 +140,11 @@ $(document).ready(function () {
                 }
             }
         });
+        $("#yt_video").height(300).show();
     };
 
     function setBGM(vidId) {
+        $("#yt_video").hide();
         if("undefined" === typeof(vidId)) {
             var vidId = getBGMId();
         }
@@ -151,4 +153,5 @@ $(document).ready(function () {
         playBGM(vidId);
     }
 
+    $("#yt_video").hide();
 });
