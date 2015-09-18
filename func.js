@@ -89,7 +89,9 @@ $(document).ready(function () {
         stopRecordText: function (pos) {
             clearInterval(stat["player"]);
             stat["player"] = 0;
-            $("#recordText").val($("#recordText").val().replace(/^--+/, '-').replace(/--+$/, '-'));
+            $("#recordText").val(
+                $("#recordText").val().replace(/[^-kp]/, '').replace(/^-+/, '').replace(/-+$/, '')
+            );
         }
     };
 
@@ -190,9 +192,9 @@ $(document).ready(function () {
 
     // set sample
     var patterns = [
-        "-p--p--k---ppp-p--k----p--p--k---ppp-p--k-kk-",
-        "-p----k---p-p--p--k-----p----k---p-p--p--k-",
-        "-p--p--k-----p--p--k-----p--p--k-----p--p--k-"
+        "p--p--k---ppp-p--k----p--p--k---ppp-p--k-kk",
+        "p----k---p-p--p--k-----p----k---p-p--p--k",
+        "p--p--k-----p--p--k-----p--p--k-----p--p--k"
     ];
 
     var pattern = patterns[Math.floor(Math.random() * patterns.length)];
