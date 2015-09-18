@@ -16,25 +16,29 @@ $(document).ready(function () {
             setTimeout(function () {
                 stat["key"] = "-";
             }, 100);
-            if (1 === stat[id]) {
+            if (0 !== stat[id]) {
+                clearTimeout(stat[id])
                 $(id).attr("src", "./imgs/init.jpg").removeClass("glowing");
                 setTimeout(function () {
                     $(id).attr("src", "./imgs/down.jpg").addClass("glowing");
-                }, 20);
-                setTimeout(function () {
+                }, 10);
+                stat[id] = setTimeout(function () {
                     controller.reset(id);
-                }, 60);
+                }, 80);
             } else {
                 $(id).attr("src", "./imgs/animate.gif").addClass("glowing");
                 setTimeout(function () {
                     $(id).attr("src", "./imgs/down.jpg").addClass("glowing");
-                }, 100);
-                stat[id] = 1;
+                }, 80);
+                stat[id] = setTimeout(function () {
+                    controller.reset(id);
+                }, 200);
             }
         },
 
         reset: function (id) {
             $(id).attr("src", "./imgs/init.jpg").removeClass("glowing");
+            clearTimeout(stat[id])
             stat[id] = 0;
         },
 
@@ -43,16 +47,10 @@ $(document).ready(function () {
             ".pon": new Howl({
                 buffer: true,
                 urls: ["pon.wav"],
-                onend: function () {
-                    controller.reset(".pon")
-                }
             }),
             ".ka": new Howl({
                 buffer: true,
                 urls: ["ka.wav"],
-                onend: function () {
-                    controller.reset(".ka")
-                }
             })
         }
 
