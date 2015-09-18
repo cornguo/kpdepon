@@ -20,7 +20,7 @@ $(document).ready(function () {
                 stat["key"] = "-";
             }, 100);
             if (0 !== stat[id]) {
-                clearTimeout(stat[id])
+                clearTimeout(stat[id]);
                 $(id).attr("src", "./imgs/init.jpg").removeClass("glowing");
                 setTimeout(function () {
                     $(id).attr("src", "./imgs/down.jpg").addClass("glowing");
@@ -41,7 +41,7 @@ $(document).ready(function () {
 
         reset: function (id) {
             $(id).attr("src", "./imgs/init.jpg").removeClass("glowing");
-            clearTimeout(stat[id])
+            clearTimeout(stat[id]);
             stat[id] = 0;
         },
 
