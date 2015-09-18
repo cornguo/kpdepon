@@ -126,7 +126,12 @@ $(document).ready(function () {
         stopRecordText();
     });
 
-    var patterns = ["-p--p--k---ppp-p--k----p--p--k---ppp-p--k-kk-", "-p----k---p-p--p--k-----p----k---p-p--p--k-"];
+    var patterns = [
+        "-p--p--k---ppp-p--k----p--p--k---ppp-p--k-kk-",
+        "-p----k---p-p--p--k-----p----k---p-p--p--k-",
+        "-p--p--k-----p--p--k-----p--p--k-----p--p--k-"
+    ];
+
     var pattern = patterns[Math.floor(Math.random() * patterns.length)]
 
     $("#recordText").val(pattern);
