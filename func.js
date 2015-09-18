@@ -46,11 +46,11 @@ $(document).ready(function () {
         sounds: {
             ".pon": new Howl({
                 buffer: true,
-                urls: ["pon.wav"],
+                urls: ["./clips/pon.wav"],
             }),
             ".ka": new Howl({
                 buffer: true,
-                urls: ["ka.wav"],
+                urls: ["./clips/ka.wav"],
             })
         }
 
