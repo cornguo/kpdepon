@@ -14,6 +14,7 @@ Credits (by commit, newest first):
 - change page layout by suggestion of xx52002@ptt
 
 Known problems:
+- not fully working on IE/Edge
 - not sure how to get precise timing in javascript
 - mobile devices has tons of bugs, it just will work as-is
 - if something's wrong, just let it go
