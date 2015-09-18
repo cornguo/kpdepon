@@ -1,25 +1,27 @@
 $(document).ready(function () {
-    var stat = [];
-    stat[".pon"] = 0;
-    stat[".ka"] = 0;
+    var stat = {
+        ".pon": 0,
+        ".ka": 0,
+        "key": "-",
+        "player": 0
+    };
 
-    var sounds = [];
-
-    sounds[".pon"] = new Howl({
-        buffer: true,
-        urls: ["pon.wav"],
-        onend: function () {
-            reset(".pon")
-        }
-    });
-
-    sounds[".ka"] = new Howl({
-        buffer: true,
-        urls: ["ka.wav"],
-        onend: function () {
-            reset(".ka")
-        }
-    });
+    var sounds = {
+        ".pon": new Howl({
+            buffer: true,
+            urls: ["pon.wav"],
+            onend: function () {
+                reset(".pon")
+            }
+        }),
+        ".ka": new Howl({
+            buffer: true,
+            urls: ["ka.wav"],
+            onend: function () {
+                reset(".ka")
+            }
+        })
+    };
 
     $(document).keydown(function (e) {
         switch (e.which) {
