@@ -113,9 +113,6 @@ $(document).ready(function () {
 
         setBGM: function (vidId) {
             $("#yt_video").hide();
-            if("undefined" === typeof(vidId)) {
-                var vidId = getBGMId();
-            }
 
             $("#yt_video").replaceWith("<div id=\"yt_video\"></div>");
             yt_player.playBGM(vidId);
