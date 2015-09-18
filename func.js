@@ -4,8 +4,7 @@ $(document).ready(function () {
     var stat = {
         ".pon": 0,
         ".ka": 0,
-        "key": "-",
-        "player": 0
+        "key": "-"
     };
 
     // set animation delay by screen type (i think it's buggy)
@@ -71,28 +70,12 @@ $(document).ready(function () {
 
         playRecordText: function (pos) {
             player.stopRecordText();
-            var text = $("#recordText").val();
-            if (pos > text.length) {
-                return;
-            }
-
-            switch (text[pos]) {
-            case "p":
-                controller.play(".pon");
-                break;
-            case "k":
-                controller.play(".ka");
-                break;
-            }
-
-            stat["player"] = setTimeout(function () {
-                player.playRecordText(pos+1);
-            }, 100);
+            metronome.tempo = parseInt($("#tempo").val());
+            metronome.play($("#recordText").val());
         },
 
         stopRecordText: function (pos) {
-            clearInterval(stat["player"]);
-            stat["player"] = 0;
+            metronome.stop();
             $("#recordText").val(
                 $("#recordText").val().replace(/[^-kp]/g, '').replace(/^-+/, '').replace(/-+$/, '')
             );
@@ -221,4 +204,6 @@ $(document).ready(function () {
         // do nothing
     }
 
+    metronome.init(controller);
+    console.log("metronome initialized.");
 });
