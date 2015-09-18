@@ -204,6 +204,10 @@ $(document).ready(function () {
         }, 1000);
     }
 
+    var bpm = str.match(/b=([^&]*)&?/);
+    if (bpm) {
+        $("#tempo").val(parseInt(bpm[1]));
+    }
     metronome.init(controller);
     console.log("metronome initialized.");
 });
