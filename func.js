@@ -131,12 +131,14 @@ $(document).ready(function () {
 
     $("#recordText").val(pattern);
 
+    var animationWidth = $("#animation").width();
+    var dimension = [animationWidth / 4, animationWidth * 3 / 16];
 
     // youtube player
     function playBGM(vidId) {
         var player = new YT.Player('yt_video', {
-            height: 200,
-            width: 300,
+            height: dimension[0] + 20,
+            width: dimension[1] + 20,
             videoId: vidId,
             events: {
                 onReady: function(e) { e.target.playVideo(); },
@@ -145,7 +147,8 @@ $(document).ready(function () {
                 }
             }
         });
-        $("#yt_video").height(300).show();
+        $("#yt_video").width(dimension[0] + 20).height(dimension[1] + 20).show();
+        $(".ka").width(dimension[0]).height(dimension[1]);
     };
 
     function setBGM(vidId) {
