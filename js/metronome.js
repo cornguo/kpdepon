@@ -1,8 +1,8 @@
 var metronome = {
+
     controller: null,
     audioContext: null,
     nextNoteTime: 0.0,
-    notesInQueue: [],
     timerWorker: null,
     tempo: 120.0,
     lookahead: 15.0,
@@ -10,17 +10,14 @@ var metronome = {
     score: '',
     currentNote: 0,
     isPlaying: false,
+
     nextNote: function () {
         var secondsPerBeat = 60.0 / this.tempo;
         this.nextNoteTime += 0.25 * secondsPerBeat;
-
         this.currentNote++;
     },
 
-    scheduleNote: function (beatNumber, time) {
-        // push the note on the queue, even if we're not playing.
-        this.notesInQueue.push( { note: beatNumber, time: time } );
-
+    playNote: function () {
         var pos = parseInt(this.currentNote);
 
         if (pos > this.score.length) {
@@ -39,14 +36,14 @@ var metronome = {
     },
 
     scheduler: function () {
-        while (this.nextNoteTime < this.audioContext.currentTime + this.scheduleAheadTime ) {
-            this.scheduleNote( this.currentNote % 16, this.nextNoteTime );
+        while (this.nextNoteTime < this.audioContext.currentTime + this.scheduleAheadTime) {
+            this.playNote();
             this.nextNote();
         }
     },
 
     play: function (score) {
-        if (!this.isPlaying) { // start playing
+        if (!this.isPlaying) {
             if (score) {
                 this.score = score;
             }
@@ -78,6 +75,5 @@ var metronome = {
         };
 
         this.timerWorker.postMessage({"interval": this.lookahead});
-
     }
 };
