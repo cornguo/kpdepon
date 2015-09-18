@@ -154,4 +154,14 @@ $(document).ready(function () {
     }
 
     $("#yt_video").hide();
+
+    var str = window.location.hash.substr(1);
+    try {
+        var vidId = str.match(/v=([^&]*)&?/)[1];
+        setTimeout(function() {
+            playBGM(vidId);
+        }, 1000);
+    } catch (err) {
+        // do nothing
+    }
 });
