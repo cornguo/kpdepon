@@ -11,6 +11,10 @@ $(document).ready(function () {
     // set animation delay by screen type (i think it's buggy)
     var delay = (null === document.ontouchstart)? [10, 80, 80, 200]:[20,250,100,250];
 
+    // layout
+    var animationWidth = $("#animation").width();
+    var dimension = [animationWidth / 4, animationWidth * 3 / 16];
+
     // audio fx controller
     var controller = {
         play: function (id) {
@@ -199,10 +203,6 @@ $(document).ready(function () {
 
     var pattern = patterns[Math.floor(Math.random() * patterns.length)];
     $("#recordText").val(pattern);
-
-    // layout
-    var animationWidth = $("#animation").width();
-    var dimension = [animationWidth / 4, animationWidth * 3 / 16];
 
     setTimeout(function () {
         $('#fb_like iframe:first').attr('src', $('#fb_like iframe:first').data('src'));
