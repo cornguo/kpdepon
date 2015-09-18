@@ -88,4 +88,8 @@ body {
     #fork_me {
         display: none;
     }
+
+    #player {
+        bottom: 20px;
+    }
 }
