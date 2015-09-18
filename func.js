@@ -102,7 +102,7 @@ $(document).ready(function () {
 
         stat["player"] = setTimeout(function () {
             playRecordText(pos+1);
-        }, 100)
+        }, 100);
     }
 
     function stopRecordText(pos) {
