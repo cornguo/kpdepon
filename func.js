@@ -49,11 +49,11 @@ $(document).ready(function () {
         sounds: {
             ".pon": new Howl({
                 buffer: true,
-                urls: ["./clips/pon.wav"],
+                urls: ["./convert/pon.ogg", "./convert/pon.mp3"],
             }),
             ".ka": new Howl({
                 buffer: true,
-                urls: ["./clips/ka.wav"],
+                urls: ["./convert/ka.ogg", "./convert/ka.mp3"],
             })
         }
 
