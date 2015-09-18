@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    padding: 0;
+    padding: 1em 0 0 0;
 }
 
 #container {
@@ -30,7 +30,7 @@ body {
 
 #animation img.ka {
     margin: 1em;
-    width: 320px;
+    width: 30%;
 }
 
 .glowing {
@@ -70,4 +70,13 @@ body {
     position: absolute;
     top: 10px;
     left: 10px;
+}
+
+@media screen and (max-width: 500px) {
+    img {
+        width: 50%;
+    }
+    #fork_me {
+        display: none;
+    }
 }
