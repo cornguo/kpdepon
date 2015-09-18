@@ -92,9 +92,14 @@ $(document).ready(function () {
                 width: dimension[1] + 80,
                 videoId: vidId,
                 events: {
-                    onReady: function(e) { e.target.playVideo(); },
+                    onReady: function(e) {
+                        console.log("BGM playing");
+                        e.target.playVideo();
+                    },
                     onStateChange: function(e) {
-                        if(e.data == YT.PlayerState.ENDED) { yt_player.setBGM(getBGMId(vidId)); }
+                        if(e.data == YT.PlayerState.ENDED) {
+                            console.log("BGM stopped");
+                        }
                     }
                 }
             });
@@ -181,7 +186,7 @@ $(document).ready(function () {
 
     // set sample
     var patterns = [
-        "p--p--k---ppp-p--k----p--p--k---ppp-p--k-kk",
+        "p--p--k--ppp-p--k----p--p--k--ppp-p--k-kk",
         "p----k---p-p--p--k-----p----k---p-p--p--k",
         "p--p--k-----p--p--k-----p--p--k-----p--p--k"
     ];
