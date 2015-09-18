@@ -197,13 +197,11 @@ $(document).ready(function () {
 
     // if hash is given, extract ytid
     var str = window.location.hash.substr(1);
-    try {
-        var vidId = str.match(/v=([^&]*)&?/)[1];
+    var vidId = str.match(/v=([^&]*)&?/);
+    if (vidId) {
         setTimeout(function() {
-            yt_player.playBGM(vidId);
+            yt_player.playBGM(vidId[1]);
         }, 1000);
-    } catch (err) {
-        // do nothing
     }
 
     metronome.init(controller);
