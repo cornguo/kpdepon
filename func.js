@@ -4,7 +4,8 @@ $(document).ready(function () {
     var stat = {
         ".pon": 0,
         ".ka": 0,
-        "key": "-"
+        "key": "-",
+        "player": 0
     };
 
     // set animation delay by screen type (i think it's buggy)
@@ -75,6 +76,7 @@ $(document).ready(function () {
         },
 
         stopRecordText: function (pos) {
+            clearInterval(stat["player"]);
             metronome.stop();
             $("#recordText").val(
                 $("#recordText").val().replace(/[^-kp]/g, '').replace(/^-+/, '').replace(/-+$/, '')
