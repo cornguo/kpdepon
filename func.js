@@ -23,7 +23,7 @@ $(document).ready(function () {
             stat['key'] = id[1];
             setTimeout(function () {
                 stat['key'] = '-';
-            }, 100);
+            }, 15000 / $('#tempo').val());
             if (0 !== stat[id]) {
                 el.reset(id);
                 setTimeout(function () {
@@ -173,7 +173,7 @@ $(document).ready(function () {
         $('#record_text').val('');
         stat['player'] = setInterval(function () {
             player.logRecordText(stat['key']);
-        }, 100);
+        }, 15000 / $('#tempo').val());
     });
 
     $('#btn_play').bind('click', function () {
