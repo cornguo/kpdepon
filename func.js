@@ -35,7 +35,7 @@ $(document).ready(function () {
             } else {
                 $(id).attr("src", "./imgs/animate.gif").addClass("glowing");
                 setTimeout(function () {
-                    $(id).attr("src", "./imgs/down.jpg");
+                    $(id).attr("src", "./imgs/down.jpg").addClass("glowing");
                 }, delay[2]);
                 stat[id] = setTimeout(function () {
                     el.reset(id);
