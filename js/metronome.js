@@ -65,6 +65,8 @@ var metronome = {
     },
 
     init: function (controller) {
+        var el = this;
+
         this.controller = controller;
         this.audioContext = new AudioContext();
 
@@ -72,7 +74,7 @@ var metronome = {
 
         this.timerWorker.onmessage = function(e) {
             if (e.data == "tick") {
-                metronome.scheduler();
+                el.scheduler();
             } else {
                 console.log("message:" + e.data);
             }

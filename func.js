@@ -18,27 +18,27 @@ $(document).ready(function () {
     // audio fx controller
     var controller = {
         play: function (id) {
+            var el = this;
             this.sounds[id].play();
             stat["key"] = id[1];
             setTimeout(function () {
                 stat["key"] = "-";
             }, 100);
             if (0 !== stat[id]) {
-                clearTimeout(stat[id]);
-                $(id).attr("src", "./imgs/init.jpg").removeClass("glowing");
+                el.reset(id);
                 setTimeout(function () {
                     $(id).attr("src", "./imgs/down.jpg").addClass("glowing");
                 }, delay[0]);
                 stat[id] = setTimeout(function () {
-                    controller.reset(id);
+                    el.reset(id);
                 }, delay[1]);
             } else {
                 $(id).attr("src", "./imgs/animate.gif").addClass("glowing");
                 setTimeout(function () {
-                    $(id).attr("src", "./imgs/down.jpg").addClass("glowing");
+                    $(id).attr("src", "./imgs/down.jpg");
                 }, delay[2]);
                 stat[id] = setTimeout(function () {
-                    controller.reset(id);
+                    el.reset(id);
                 }, delay[3]);
             }
         },
@@ -70,7 +70,7 @@ $(document).ready(function () {
         },
 
         playRecordText: function (pos) {
-            player.stopRecordText();
+            this.stopRecordText();
             metronome.tempo = parseInt($("#tempo").val());
             metronome.play($("#recordText").val());
         },
