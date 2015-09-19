@@ -23,7 +23,7 @@ $(document).ready(function () {
             stat['key'] = id[1];
             setTimeout(function () {
                 stat['key'] = '-';
-            }, 15000 / $('#tempo').val());
+            }, 15000 / $('#tempo').val() + 1);
             if (0 !== stat[id]) {
                 el.reset(id);
                 setTimeout(function () {
