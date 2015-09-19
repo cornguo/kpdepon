@@ -184,9 +184,10 @@ $(document).ready(function () {
 
     // set sample
     var patterns = [
-        "p--p--k--ppp-p--k----p--p--k--ppp-p--k-kk",
-        "p----k---p-p--p--k-----p----k---p-p--p--k",
-        "p--p--k-----p--p--k-----p--p--k-----p--p--k"
+        "p--p--k--ppp-p-k----p--p--k--ppp-p-k-kk",
+        "p---k----pp-p--k----p---k----pp-p--k",
+        "p---p---k-------p---p---k",
+        "p--p--p-p--p--p-p--p--p-k---k"
     ];
 
     var pattern = patterns[Math.floor(Math.random() * patterns.length)];
