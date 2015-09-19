@@ -108,10 +108,8 @@ $(document).ready(function () {
         },
 
         setBGM: function (vidId) {
-            $("#yt_video").hide();
-
-            $("#yt_video").replaceWith("<div id=\"yt_video\"></div>");
-            yt_player.playBGM(vidId);
+            $("#yt_video").hide().replaceWith("<div id=\"yt_video\"></div>");
+            this.playBGM(vidId);
         }
     }
 
@@ -132,7 +130,7 @@ $(document).ready(function () {
         case 81:
             var url = prompt("youtube url?");
             var vidId = url.match(/v=([^&]*)&?/)[1];
-            yt_player.playBGM(vidId);
+            yt_player.setBGM(vidId);
             break;
         // w
         case 87:
