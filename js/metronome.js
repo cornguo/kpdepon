@@ -48,7 +48,7 @@ var metronome = {
 
     play: function (score) {
         if (!this.isPlaying) {
-            if (score) {
+            if (undefined !== score) {
                 this.score = score;
             }
 

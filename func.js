@@ -131,8 +131,10 @@ $(document).ready(function () {
         // q
         case 81:
             var url = prompt('youtube url?');
-            var vidId = url.match(/v=([^&]*)&?/)[1];
-            yt_player.setBGM(vidId);
+            var vidId = url.match(/v=([^&]*)&?/);
+            if (vidId) {
+                yt_player.setBGM(vidId[1]);
+            }
             break;
         // w
         case 87:
