@@ -2,17 +2,17 @@ $(document).ready(function () {
 
     // status register
     var stat = {
-        ".pon": 0,
-        ".ka": 0,
-        "key": "-",
-        "player": 0
+        '.pon': 0,
+        '.ka': 0,
+        'key': '-',
+        'player': 0
     };
 
     // set animation delay by screen type (i think it's buggy)
     var delay = (null === document.ontouchstart)? [10, 80, 80, 200]:[20,250,100,250];
 
     // layout
-    var animationWidth = $("#animation").width();
+    var animationWidth = $('#animation').width();
     var dimension = [animationWidth / 4, animationWidth * 3 / 16];
 
     // audio fx controller
@@ -20,22 +20,22 @@ $(document).ready(function () {
         play: function (id) {
             var el = this;
             this.sounds[id].play();
-            stat["key"] = id[1];
+            stat['key'] = id[1];
             setTimeout(function () {
-                stat["key"] = "-";
+                stat['key'] = '-';
             }, 100);
             if (0 !== stat[id]) {
                 el.reset(id);
                 setTimeout(function () {
-                    $(id).attr("src", "./imgs/down.jpg").addClass("glowing");
+                    $(id).attr('src', './imgs/down.jpg').addClass('glowing');
                 }, delay[0]);
                 stat[id] = setTimeout(function () {
                     el.reset(id);
                 }, delay[1]);
             } else {
-                $(id).attr("src", "./imgs/animate.gif").addClass("glowing");
+                $(id).attr('src', './imgs/animate.gif').addClass('glowing');
                 setTimeout(function () {
-                    $(id).attr("src", "./imgs/down.jpg").addClass("glowing");
+                    $(id).attr('src', './imgs/down.jpg').addClass('glowing');
                 }, delay[2]);
                 stat[id] = setTimeout(function () {
                     el.reset(id);
@@ -45,21 +45,21 @@ $(document).ready(function () {
 
         reset: function (id) {
             clearTimeout(stat[id]);
-            $(id).attr("src", "./imgs/init.jpg").removeClass("glowing");
+            $(id).attr('src', './imgs/init.jpg').removeClass('glowing');
             stat[id] = 0;
         },
 
         // sounds
         sounds: {
-            ".pon": new Howl({
+            '.pon': new Howl({
                 buffer: true,
                 volume: 0.7,
-                urls: ["./convert/pon.ogg", "./convert/pon.mp3"],
+                urls: ['./convert/pon.ogg', './convert/pon.mp3'],
             }),
-            ".ka": new Howl({
+            '.ka': new Howl({
                 buffer: true,
                 volume: 0.7,
-                urls: ["./convert/ka.ogg", "./convert/ka.mp3"],
+                urls: ['./convert/ka.ogg', './convert/ka.mp3'],
             })
         }
 
@@ -68,20 +68,20 @@ $(document).ready(function () {
     // expermintal player
     var player = {
         logRecordText: function (key) {
-            $("#record_text").val($("#record_text").val() + key);
+            $('#record_text').val($('#record_text').val() + key);
         },
 
         playRecordText: function () {
             this.stopRecordText();
-            metronome.tempo = parseInt($("#tempo").val());
-            metronome.play($("#record_text").val());
+            metronome.tempo = parseInt($('#tempo').val());
+            metronome.play($('#record_text').val());
         },
 
         stopRecordText: function (pos) {
-            clearInterval(stat["player"]);
+            clearInterval(stat['player']);
             metronome.stop();
-            $("#record_text").val(
-                $("#record_text").val().replace(/[^-kp]/g, '').replace(/^-+/, '').replace(/-+$/, '')
+            $('#record_text').val(
+                $('#record_text').val().replace(/[^-kp]/g, '').replace(/^-+/, '').replace(/-+$/, '')
             );
         }
     };
@@ -95,22 +95,22 @@ $(document).ready(function () {
                 videoId: vidId,
                 events: {
                     onReady: function(e) {
-                        console.log("BGM playing");
+                        console.log('BGM playing');
                         e.target.playVideo();
                     },
                     onStateChange: function(e) {
                         if(e.data == YT.PlayerState.ENDED) {
-                            console.log("BGM stopped");
+                            console.log('BGM stopped');
                         }
                     }
                 }
             });
-            $("#yt_video").width(dimension[0] + 80).height(dimension[1] + 20).show();
-            $(".ka").width(dimension[0]).height(dimension[1]);
+            $('#yt_video').width(dimension[0] + 80).height(dimension[1] + 20).show();
+            $('.ka').width(dimension[0]).height(dimension[1]);
         },
 
         setBGM: function (vidId) {
-            $("#yt_video").hide().replaceWith("<div id=\"yt_video\"></div>");
+            $('#yt_video').hide().replaceWith('<div id=\'yt_video\'></div>');
             this.playBGM(vidId);
         }
     }
@@ -121,22 +121,22 @@ $(document).ready(function () {
         // x .
         case 88:
         case 190:
-            controller.play(".pon");
+            controller.play('.pon');
             break;
         // a and '
         case 65:
         case 222:
-            controller.play(".ka");
+            controller.play('.ka');
             break;
         // q
         case 81:
-            var url = prompt("youtube url?");
+            var url = prompt('youtube url?');
             var vidId = url.match(/v=([^&]*)&?/)[1];
             yt_player.setBGM(vidId);
             break;
         // w
         case 87:
-            var test = "p--p--p-p--p--p-p--p--p-k---k---p--p--p-p--p--p-k---k---p---k---k-k-ppp-k-k-pp \
+            var test = 'p--p--p-p--p--p-p--p--p-k---k---p--p--p-p--p--p-k---k---p---k---k-k-ppp-k-k-pp \
                         p-k-k-ppp-p-ppp-p-k-k-ppp-k-k-ppp-p-k-k-k-kkk-k-k-k-k-ppp-k-k-ppp-k-k-ppp-p-pp \
                         p-p-p-kkk-ppp-k-kkkkk-kkk-k-k---p-p-k-k-ppp-k-k-ppp-k-k-ppp-p-ppp-p-k-k-ppp-k- \
                         k-ppp-p-k-k-k-kkk-k-k-k-k-ppp-k-k-ppp-k-k-ppp-p-ppp-p-ppp-kkk-p-p-k-k-p--p--p- \
@@ -158,48 +158,48 @@ $(document).ready(function () {
                         kk-p-p-k---p-p-k-ppk-ppk-ppk---p-p-k-k-ppppppp-k-k-ppp-k-k-ppp-k-k-ppp-p-ppp-p \
                         -k-k-ppp-k-k-ppp-p-k-k-k-kkk-k-k-k-k-ppp-k-k-ppp-k-k-ppp-p-ppp-p-p-kkk-ppp-k-k \
                         kkkk-kkk-k-k---p-p-k-k-ppp-k-k-ppp-k-k-ppp-p-ppp-p-k-k-ppp-k-k-ppp-p-k-k-k-kkk \
-                        -k-k-k-k-ppp-k-k-ppp-k-k-ppp-p-ppp-kkk-p-p-k-k-p--p--p-p---p---k--k--p-p";
-            $("#record_text").val(test.replace(/[^-kp]/g, ''));
+                        -k-k-k-k-ppp-k-k-ppp-k-k-ppp-p-ppp-kkk-p-p-k-k-p--p--p-p---p---k--k--p-p';
+            $('#record_text').val(test.replace(/[^-kp]/g, ''));
             break;
         }
     });
 
-    var clickType = ((null !== document.ontouchstart)? "click":"touchstart");
-    $(".pon").bind(clickType, function () {controller.play(".pon");});
-    $(".ka").bind(clickType, function () {controller.play(".ka");});
+    var clickType = ((null !== document.ontouchstart)? 'click':'touchstart');
+    $('.pon').bind(clickType, function () {controller.play('.pon');});
+    $('.ka').bind(clickType, function () {controller.play('.ka');});
 
-    $("#btn_record").bind("click", function () {
+    $('#btn_record').bind('click', function () {
         player.stopRecordText();
-        $("#record_text").val("");
-        stat["player"] = setInterval(function () {
-            player.logRecordText(stat["key"]);
+        $('#record_text').val('');
+        stat['player'] = setInterval(function () {
+            player.logRecordText(stat['key']);
         }, 100);
     });
 
-    $("#btn_play").bind("click", function () {
+    $('#btn_play').bind('click', function () {
         player.playRecordText();
     });
 
-    $("#btn_stop").bind("click", function () {
+    $('#btn_stop').bind('click', function () {
         player.stopRecordText();
     });
 
     // set sample
     var patterns = [
-        "p--p--k--ppp-p-k----p--p--k--ppp-p-k-kk",
-        "p---k----pp-p--k----p---k----pp-p--k",
-        "p---p---k-------p---p---k",
-        "p--p--p-p--p--p-p--p--p-k---k"
+        'p--p--k--ppp-p-k----p--p--k--ppp-p-k-kk',
+        'p---k----pp-p--k----p---k----pp-p--k',
+        'p---p---k-------p---p---k',
+        'p--p--p-p--p--p-p--p--p-k---k'
     ];
 
     var pattern = patterns[Math.floor(Math.random() * patterns.length)];
-    $("#record_text").val(pattern);
+    $('#record_text').val(pattern);
 
     setTimeout(function () {
         $('#fb_like iframe:first').attr('src', $('#fb_like iframe:first').data('src'));
     }, 1000);
 
-    $("#yt_video").hide();
+    $('#yt_video').hide();
 
     // if hash is given, extract ytid
     var str = window.location.hash.substr(1);
@@ -212,14 +212,14 @@ $(document).ready(function () {
 
     var bpm = str.match(/b=([^&]*)&?/);
     if (bpm) {
-        $("#tempo").val(parseInt(bpm[1]));
+        $('#tempo').val(parseInt(bpm[1]));
     }
     metronome.init(controller);
-    console.log("metronome initialized.");
+    console.log('metronome initialized.');
 
     // tempo stat
     metronome.statCallback = function (curr, len) {
-        $("#tempo_stat").text(parseInt(curr / 4) + 1);
+        $('#tempo_stat').text(parseInt(curr / 4) + 1);
     }
 
 });

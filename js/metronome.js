@@ -28,11 +28,11 @@ var metronome = {
         }
 
         switch (this.score[pos]) {
-        case "k":
-            this.controller.play(".ka");
+        case 'k':
+            this.controller.play('.ka');
             break;
-        case "p":
-            this.controller.play(".pon");
+        case 'p':
+            this.controller.play('.pon');
             break;
         }
 
@@ -55,13 +55,13 @@ var metronome = {
             this.isPlaying = true;
             this.currentNote = -1;
             this.nextNoteTime = this.audioContext.currentTime;
-            this.timerWorker.postMessage("start");
+            this.timerWorker.postMessage('start');
         }
     },
 
     stop: function () {
         this.isPlaying = false;
-        this.timerWorker.postMessage("stop");
+        this.timerWorker.postMessage('stop');
     },
 
     init: function (controller) {
@@ -70,17 +70,17 @@ var metronome = {
         this.controller = controller;
         this.audioContext = new AudioContext();
 
-        this.timerWorker = new Worker("js/metronomeworker.js");
+        this.timerWorker = new Worker('js/metronomeworker.js');
 
         this.timerWorker.onmessage = function(e) {
-            if (e.data == "tick") {
+            if (e.data == 'tick') {
                 el.scheduler();
             } else {
-                console.log("message:" + e.data);
+                console.log('message:' + e.data);
             }
         };
 
-        this.timerWorker.postMessage({"interval": this.lookahead});
+        this.timerWorker.postMessage({ interval: this.lookahead });
     },
 
 };
