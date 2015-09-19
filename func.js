@@ -53,10 +53,12 @@ $(document).ready(function () {
         sounds: {
             ".pon": new Howl({
                 buffer: true,
+                volume: 0.7,
                 urls: ["./convert/pon.ogg", "./convert/pon.mp3"],
             }),
             ".ka": new Howl({
                 buffer: true,
+                volume: 0.7,
                 urls: ["./convert/ka.ogg", "./convert/ka.mp3"],
             })
         }
