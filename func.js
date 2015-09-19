@@ -68,20 +68,20 @@ $(document).ready(function () {
     // expermintal player
     var player = {
         logRecordText: function (key) {
-            $("#recordText").val($("#recordText").val() + key);
+            $("#record_text").val($("#record_text").val() + key);
         },
 
         playRecordText: function (pos) {
             this.stopRecordText();
             metronome.tempo = parseInt($("#tempo").val());
-            metronome.play($("#recordText").val());
+            metronome.play($("#record_text").val());
         },
 
         stopRecordText: function (pos) {
             clearInterval(stat["player"]);
             metronome.stop();
-            $("#recordText").val(
-                $("#recordText").val().replace(/[^-kp]/g, '').replace(/^-+/, '').replace(/-+$/, '')
+            $("#record_text").val(
+                $("#record_text").val().replace(/[^-kp]/g, '').replace(/^-+/, '').replace(/-+$/, '')
             );
         }
     };
@@ -159,7 +159,7 @@ $(document).ready(function () {
                         -k-k-ppp-k-k-ppp-p-k-k-k-kkk-k-k-k-k-ppp-k-k-ppp-k-k-ppp-p-ppp-p-p-kkk-ppp-k-k \
                         kkkk-kkk-k-k---p-p-k-k-ppp-k-k-ppp-k-k-ppp-p-ppp-p-k-k-ppp-k-k-ppp-p-k-k-k-kkk \
                         -k-k-k-k-ppp-k-k-ppp-k-k-ppp-p-ppp-kkk-p-p-k-k-p--p--p-p---p---k--k--p-p";
-            $("#recordText").val(test.replace(/[^-kp]/g, ''));
+            $("#record_text").val(test.replace(/[^-kp]/g, ''));
             break;
         }
     });
@@ -170,7 +170,7 @@ $(document).ready(function () {
 
     $("#btn_record").bind("click", function () {
         player.stopRecordText();
-        $("#recordText").val("");
+        $("#record_text").val("");
         stat["player"] = setInterval(function () {
             player.logRecordText(stat["key"]);
         }, 100);
@@ -193,7 +193,7 @@ $(document).ready(function () {
     ];
 
     var pattern = patterns[Math.floor(Math.random() * patterns.length)];
-    $("#recordText").val(pattern);
+    $("#record_text").val(pattern);
 
     setTimeout(function () {
         $('#fb_like iframe:first').attr('src', $('#fb_like iframe:first').data('src'));
