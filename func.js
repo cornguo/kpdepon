@@ -71,7 +71,7 @@ $(document).ready(function () {
             $("#record_text").val($("#record_text").val() + key);
         },
 
-        playRecordText: function (pos) {
+        playRecordText: function () {
             this.stopRecordText();
             metronome.tempo = parseInt($("#tempo").val());
             metronome.play($("#record_text").val());
@@ -177,7 +177,7 @@ $(document).ready(function () {
     });
 
     $("#btn_play").bind("click", function () {
-        player.playRecordText(0);
+        player.playRecordText();
     });
 
     $("#btn_stop").bind("click", function () {
@@ -206,7 +206,7 @@ $(document).ready(function () {
     var vidId = str.match(/v=([^&]*)&?/);
     if (vidId) {
         setTimeout(function() {
-            yt_player.playBGM(vidId[1]);
+            yt_player.setBGM(vidId[1]);
         }, 1000);
     }
 
