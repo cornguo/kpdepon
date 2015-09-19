@@ -215,4 +215,10 @@ $(document).ready(function () {
     }
     metronome.init(controller);
     console.log("metronome initialized.");
+
+    // tempo stat
+    metronome.statCallback = function (curr, len) {
+        $("#tempo_stat").text(parseInt(curr / 4) + 1);
+    }
+
 });

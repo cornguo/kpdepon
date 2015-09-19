@@ -10,6 +10,7 @@ var metronome = {
     score: '',
     currentNote: 0,
     isPlaying: false,
+    statCallback: function (curr, len) {},
 
     nextNote: function () {
         var secondsPerBeat = 60.0 / this.tempo;
@@ -19,8 +20,9 @@ var metronome = {
 
     playNote: function () {
         var pos = parseInt(this.currentNote);
+        var len = this.score.length;
 
-        if (pos > this.score.length) {
+        if (pos > len) {
             this.stop();
             return;
         }
@@ -33,6 +35,8 @@ var metronome = {
             this.controller.play(".pon");
             break;
         }
+
+        this.statCallback(pos, len);
     },
 
     scheduler: function () {
@@ -75,5 +79,6 @@ var metronome = {
         };
 
         this.timerWorker.postMessage({"interval": this.lookahead});
-    }
+    },
+
 };

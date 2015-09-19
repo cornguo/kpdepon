@@ -72,6 +72,15 @@ body {
     left: 10px;
 }
 
+#tempo {
+    width: 6em;
+}
+
+#tempo_stat {
+    margin-right: 20px;
+    float: right;
+}
+
 @media screen and (max-width: 500px) {
     img {
         width: 50%;
