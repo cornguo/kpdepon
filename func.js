@@ -44,8 +44,8 @@ $(document).ready(function () {
         },
 
         reset: function (id) {
-            $(id).attr("src", "./imgs/init.jpg").removeClass("glowing");
             clearTimeout(stat[id]);
+            $(id).attr("src", "./imgs/init.jpg").removeClass("glowing");
             stat[id] = 0;
         },
 
