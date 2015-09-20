@@ -52,6 +52,7 @@ a {
     font-family: 'PT Mono';
     line-height: 1.8em;
     vertical-align: top;
+    text-align: left;
 }
 
 #player .title {
@@ -165,7 +166,6 @@ a {
         -moz-box-sizing: border-box;
         font-size: 16px;
         min-height: 150px;
-        text-align: left;
     }
     #animation {
         border: 3px solid #fff;
