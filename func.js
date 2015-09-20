@@ -105,9 +105,13 @@ $(document).ready(function () {
                     }
                 }
             });
-            $('#yt_video').width(dimension[0] * 1.4).height(dimension[1] * 1.25).show();
-            $('.ka').width(dimension[0]);
-            $('.pon').width(dimension[0] * 1.3);
+            if ('none' !== $('.upper img.ka:first').css('display')) {
+                $('#yt_video').width(dimension[0] * 2).height(dimension[1] * 1.6).show();
+                $('.ka').width(dimension[0] * 0.8);
+                $('.pon').width(dimension[0] * 1.2);
+            } else {
+                $('#yt_video').height(dimension[1] * 2.5).show();
+            }
         },
 
         setBGM: function (vidId) {

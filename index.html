@@ -8,6 +8,9 @@
     <title>KP de pon</title>
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=500, user-scalable=0" />
+    <link href='https://fonts.googleapis.com/css?family=PT+Mono' rel='stylesheet' type='text/css'>
+    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
     <script type="text/javascript" src="//www.youtube.com/player_api"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <!--    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>-->
@@ -25,21 +28,39 @@
         <iframe src="about:blank" data-src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fcornguo.atcity.org%2Ftest%2Fkpdepon%2F&amp;layout=button_count&amp;show_faces=true&amp;width=100&amp;action=like&amp;colorscheme=light&amp;height=21" style="border:none; overflow:hidden; height:21px;"></iframe>
     </div>
 
-    <div id="container">
+    <div class="container">
         <div id="animation">
-            <p>溫馨提示：點圖片或是按鍵盤的 [x] [.] 與 [a] [']，按 [q] 可能可以播影片啦</p>
-            <img class="ka" src="./imgs/init.jpg" />
-            <div id="yt_video"></div>
-            <img class="ka flip" src="./imgs/init.jpg" /><br />
-            <img class="pon" src="./imgs/init.jpg" />
+            <div class="upper">
+                <img class="ka hide-mobile" src="./imgs/init.jpg" />
+                <div id="yt_video"></div>
+                <img class="ka flip hide-mobile" src="./imgs/init.jpg" />
+            </div>
+            <div class="lower">
+                <img class="ka hide-desktop" src="./imgs/init.jpg" />
+                <img class="pon" src="./imgs/init.jpg" />
+                <img class="ka flip hide-desktop" src="./imgs/init.jpg" />
+            </div>
         </div>
 
-        <div id="player">
-            <p>BPM: <input id="tempo" value="120" /><span id="tempo_stat"></span></p>
-            <p><textarea id="record_text"></textarea></p>
-            <button id="btn_record">rec</button>
-            <button id="btn_play">play</button>
-            <button id="btn_stop">stop</button>
+        <div id="usage" class="box">
+            <ul>
+                <li> [a] ['] 柯 Ka
+                <li> [x] [.] 柯 Pon
+                <li> 或是直接用滑鼠點點柯 P
+                <li> [q] 開啟 Youtube 音樂
+                <div class="thanks">Special thanks to <a href="http://applepig.idv.tw/">applepig</a> for this template.</div>
+            </ul>
+        </div>
+
+        <div id="player" class="box">
+            <div class="title">
+                錄音功能（測試中）
+                <span>BPM: <input id="tempo" value="120" /><span id="tempo_stat"></span></span>
+            </div>
+            <textarea id="record_text"></textarea>
+            <a class="btn" id="btn_record"><i class="fa fa-circle"></i></a>
+            <a class="btn" id="btn_play"><i class="fa fa-play"></i></a>
+            <a class="btn" id="btn_stop"><i class="fa fa-stop"></i></a>
         </div>
     </div>
 </body>
