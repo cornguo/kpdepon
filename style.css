@@ -30,7 +30,11 @@ body {
 
 #animation img.ka {
     margin: 1em;
-    width: 30%;
+    width: 25%;
+}
+
+#animation img.pon {
+    width: 40%;
 }
 
 .glowing {

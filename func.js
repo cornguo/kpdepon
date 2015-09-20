@@ -105,8 +105,9 @@ $(document).ready(function () {
                     }
                 }
             });
-            $('#yt_video').width(dimension[0] + 80).height(dimension[1] + 20).show();
-            $('.ka').width(dimension[0]).height(dimension[1]);
+            $('#yt_video').width(dimension[0] * 1.4).height(dimension[1] * 1.25).show();
+            $('.ka').width(dimension[0]);
+            $('.pon').width(dimension[0] * 1.3);
         },
 
         setBGM: function (vidId) {
