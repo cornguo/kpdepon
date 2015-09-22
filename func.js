@@ -89,7 +89,7 @@ $(document).ready(function () {
     // youtube player
     var yt_player = {
         playBGM: function (vidId) {
-            var player = new YT.Player('yt_video', {
+            this.player = new YT.Player('yt_video', {
                 height: dimension[0] + 20,
                 width: dimension[1] + 80,
                 videoId: vidId,
@@ -117,6 +117,10 @@ $(document).ready(function () {
         setBGM: function (vidId) {
             $('#yt_video').hide().replaceWith('<div id=\'yt_video\'></div>');
             this.playBGM(vidId);
+        },
+
+        stopBGM: function () {
+            this.player.stopVideo();
         }
     }
 
@@ -189,6 +193,7 @@ $(document).ready(function () {
 
     $('#btn_stop').bind('click', function () {
         player.stopRecordText();
+        yt_player.stopBGM();
     });
 
     // set sample
