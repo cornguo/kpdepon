@@ -156,8 +156,8 @@ $(document).ready(function () {
                         -k-k-ppp-p-k-k-k-kkk-k-k-k-k-ppp-k-k-ppp-k-k-ppp-p-ppp-p-ppp-kkk-p-p-k-k-p--p \
                         --p-pppp----p---k--kpkp-k-k-p---k---p-p-k---p---k--kpkp-k-k-p---k---ppp-k---p \
                         ---k--kpkp-k-k-p---k---p-p-k---p---k--kpkp-k---p---p---k---k---k---k---p---p- \
-                        --p--ppk-p-p--------p---p---k---k---k-kkp-p-p-ppk---k---k---p---p---p-ppk-p-p \
-                        ---p-p-p-p---p-p---p---p---p-p---------k-ppk-p-k-ppk-p-kkk-p-p-k---p-p-p-kkp- \
+                        --p--ppk-p-p-------p---p---k---k---k-kkp-p-p-ppk---k---k---p---p---p-ppk-p-p \
+                        ---p-p-p-p---p-p---p---p---p-p--------k-ppk-p-k-ppk-p-kkk-p-p-k---p-p-p-kkp- \
                         k-p-kkp-k-p-ppk-p-k---p-p-k-ppk-p-k-ppk-p-kkk-p-p-k---p-p-k---k---k---k---p-p \
                         -p-p-p---p-p-k-ppk-p-k-ppk-p-kkk-p-p-k---p-p-p-kkp-k-p-kkp-k-p-ppk-p-k----p-p \
                         -k-ppk-p-k-ppk-p-kkk-p-p-k---p-p-k---k---k---k---p-p-k-k-ppppppp-p------p---- \
