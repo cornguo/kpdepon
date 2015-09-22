@@ -97,6 +97,9 @@ $(document).ready(function () {
                     onReady: function(e) {
                         console.log('BGM playing');
                         e.target.playVideo();
+                        if (undefined !== yt_player.callback) {
+                            yt_player.callback();
+                        }
                     },
                     onStateChange: function(e) {
                         if(e.data == YT.PlayerState.ENDED) {
@@ -220,6 +223,18 @@ $(document).ready(function () {
         setTimeout(function() {
             yt_player.setBGM(vidId[1]);
         }, 1000);
+        if ('2L0nTAcDtGo' === vidId[1]) {
+            $(document).trigger(jQuery.Event('keydown', { which: 87 }));
+        }
+    }
+
+    var syncDelay = str.match(/d=([^&]*)&?/);
+    if (syncDelay) {
+        yt_player.callback = function () {
+            setTimeout(function() {
+                $('#btn_play').click();
+            }, syncDelay[1]);
+        }
     }
 
     var bpm = str.match(/b=([^&]*)&?/);
