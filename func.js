@@ -150,29 +150,30 @@ $(document).ready(function () {
             break;
         // w
         case 87:
-            var test = 'p--p--p-p--p--p-p--p--p-k---k---p--p--p-p--p--p-k---k---p---k---k-k-ppp-k-k-pp \
-                        p-k-k-ppp-p-ppp-p-k-k-ppp-k-k-ppp-p-k-k-k-kkk-k-k-k-k-ppp-k-k-ppp-k-k-ppp-p-pp \
-                        p-p-p-kkk-ppp-k-kkkkk-kkk-k-k---p-p-k-k-ppp-k-k-ppp-k-k-ppp-p-ppp-p-k-k-ppp-k- \
-                        k-ppp-p-k-k-k-kkk-k-k-k-k-ppp-k-k-ppp-k-k-ppp-p-ppp-p-ppp-kkk-p-p-k-k-p--p--p- \
-                        pppp---p---k--kpkp-k-k-p---k---p-p-k---p---k--kpkp-k-k-p---k---ppp-k---p---k-- \
-                        kpkp-k-k-p---k---p-p-k---p---k--kpkp-k---p---p---k---k---k---k---p---p---p--pp \
-                        k-p-p-------p---p---k---k---k-kkp-p-p-ppk---k---k---p---p---p-ppk-p-p---p-p-p- \
-                        p---p-p---p---p---p-p-----------k-ppk-p-k-ppk-p-kkk-p-p-k---p-p-p-kkp-k-p-kkp- \
-                        k-p-ppk-p-k---p-p-k-ppk-p-k-ppk-p-kkk-p-p-k---p-p-k---k---k---k---p-p-p-p-p--- \
-                        p-p-k-ppk-p-k-ppk-p-kkk-p-p-k---p-p-p-kkp-k-p-kkp-k-p-ppk-p-k----p-p-k-ppk-p-k \
-                        -ppk-p-kkk-p-p-k---p-p-k---k---k---k---p-p-k-k-ppppppppp-ppppppppp-----p-p---- \
-                        -----p-----p-p-----p-p---p-k-p-p-k-p-ppkkp-kkp-pp-pp-p-pp-pp-k-kk-kk-k-kk-kk-p \
-                        -pp-pp-k-kk-kk-p-pp-pp-k-kk-kk-k-ppk-p-k-p-kkp-k-ppk-p-k-p-kkp-k-ppk-kkk-p-k-p \
-                        -ppp---------------ppp-kkk-ppp-kkk-ppp-p-k-ppppppp-ppp-ppk-ppp-ppk-ppp-k-k-ppp \
-                        pppp-p-k-ppk-p-k-ppk-p-k-ppk-ppppppp-p-k-ppk-kkp-ppk-k--k--k-ppppppp-k---k---p \
-                        ---p---p-ppk-p-p-------p---p---k---k---k-kkp-p-p-ppk---k---k---p---p---p-ppk-p \
-                        -p---p-p-p-p---p-p---p---p---p-p---------k-------------------------------k---- \
-                        ---------------------------k---------------k---k---k---k---p-k-p-k-p---p-p-k-p \
-                        pk-p-k-ppk-p-kkk-p-p-k---p-p-p-kkp-k-p-kkp-k-p-ppk-p-k---p-p-k-ppk-p-k-ppk-p-k \
-                        kk-p-p-k---p-p-k-ppk-ppk-ppk---p-p-k-k-ppppppp-k-k-ppp-k-k-ppp-k-k-ppp-p-ppp-p \
-                        -k-k-ppp-k-k-ppp-p-k-k-k-kkk-k-k-k-k-ppp-k-k-ppp-k-k-ppp-p-ppp-p-p-kkk-ppp-k-k \
-                        kkkk-kkk-k-k---p-p-k-k-ppp-k-k-ppp-k-k-ppp-p-ppp-p-k-k-ppp-k-k-ppp-p-k-k-k-kkk \
-                        -k-k-k-k-ppp-k-k-ppp-k-k-ppp-p-ppp-kkk-p-p-k-k-p--p--p-p---p---k--k--p-p';
+            var test = 'p--p--p-p--p--p-p--p--p-k---k---p--p--p-p--p--p-k---k---p---k---k-k-ppp-k-k-p \
+                        pp-k-k-ppp-p-ppp-p-k-k-ppp-k-k-ppp-p-k-k-k-kkk-k-k-k-k-ppp-k-k-ppp-k-k-ppp-p- \
+                        ppp-p-p-kkk-ppp-k-kkkkk-kkk-k-k---p-p-k-k-ppp-k-k-ppp-k-k-ppp-p-ppp-p-k-k-ppp \
+                        -k-k-ppp-p-k-k-k-kkk-k-k-k-k-ppp-k-k-ppp-k-k-ppp-p-ppp-p-ppp-kkk-p-p-k-k-p--p \
+                        --p-pppp----p---k--kpkp-k-k-p---k---p-p-k---p---k--kpkp-k-k-p---k---ppp-k---p \
+                        ---k--kpkp-k-k-p---k---p-p-k---p---k--kpkp-k---p---p---k---k---k---k---p---p- \
+                        --p--ppk-p-p--------p---p---k---k---k-kkp-p-p-ppk---k---k---p---p---p-ppk-p-p \
+                        ---p-p-p-p---p-p---p---p---p-p---------k-ppk-p-k-ppk-p-kkk-p-p-k---p-p-p-kkp- \
+                        k-p-kkp-k-p-ppk-p-k---p-p-k-ppk-p-k-ppk-p-kkk-p-p-k---p-p-k---k---k---k---p-p \
+                        -p-p-p---p-p-k-ppk-p-k-ppk-p-kkk-p-p-k---p-p-p-kkp-k-p-kkp-k-p-ppk-p-k----p-p \
+                        -k-ppk-p-k-ppk-p-kkk-p-p-k---p-p-k---k---k---k---p-p-k-k-ppppppp-p------p---- \
+                        -p-p-------p-----p-p-----p-p---p-k-p-p-k-p-ppkkp-kkp-pp-pp-p-pp-pp-k-kk-kk-k- \
+                        kk-kk-p-pp-pp-k-kk-kk-p-pp-pp-k-kk-kk-k-ppk-p-k-p-kkp-k-ppk-p-k-p-kkp-k-ppk-k \
+                        kk-p-k-p-ppp-------------ppp-kkk-ppp-kkk-ppp-p-k-ppppppp-ppp-ppk-ppp-ppk-ppp- \
+                        k-k-ppppppp-p-k-ppk-p-k-ppk-p-k-ppk-ppppppp-p-k-ppk-kkp-ppk-k--k--k-ppppppp-k \
+                        ---k---p---p---p-ppk-p-p-------p---p---k---k---k-kkp-p-p-ppk---k---k---p---p- \
+                        --p-ppk-p-p---p-p-p-p---p-p---p---p---p-p---------k-------------------------- \
+                        -----k-------------------------------k---------------k---------------k---k--- \
+                        k---k---p-k-p-k-p---p-p-k-ppk-p-k-ppk-p-kkk-p-p-k---p-p-p-kkp-k-p-kkp-k-p-ppk \
+                        -p-k---p-p-k-ppk-p-k-ppk-p-kkk-p-p-k---p-p-k-ppk-ppk-ppk---p-p-k-k-ppppppp-k- \
+                        k-ppp-k-k-ppp-k-k-ppp-p-ppp-p-k-k-ppp-k-k-ppp-p-k-k-k-kkk-k-k-k-k-ppp-k-k-ppp \
+                        -k-k-ppp-p-ppp-p-p-kkk-ppp-k-kkkkk-kkk-k-k---p-p-k-k-ppp-k-k-ppp-k-k-ppp-p-pp \
+                        p-p-k-k-ppp-k-k-ppp-p-k-k-k-kkk-k-k-k-k-ppp-k-k-ppp-k-k-ppp-p-ppp-p-ppp-kkk-p \
+                        -p-k-k-p--p--p-p---p---k--k--p-p';
             $('#record_text').val(test.replace(/[^-kp]/g, ''));
             break;
         }
