@@ -28,11 +28,35 @@ a {
     text-align: center;
 }
 
+#animation .img {
+    display: inline-block;
+    padding: 10% 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#animation .pon {
+    padding: 14% 0;
+}
+
+#animation .img.init {
+    background-image: url('imgs/init.jpg');
+}
+
+#animation .img.animate {
+    background-image: url('imgs/animate.gif');
+}
+
+#animation .img.down {
+    background-image: url('imgs/down.jpg');
+}
+
 #animation div.upper {
     text-align: center;
 }
 
-#animation div.upper img,
+#animation div.upper .img,
 #animation div.upper #yt_video {
     margin: 10px;
     vertical-align: middle;
@@ -137,15 +161,17 @@ a {
         width: 80%;
         min-width: 280px;
     }
-    #animation img {
+    #animation .img {
         margin: 10px;
     }
-    #animation img.ka {
+    #animation .img.ka {
         vertical-align: top;
         width: 40%;
+        padding: 15% 0;
     }
-    #animation img.pon {
+    #animation .img.pon {
         width: 40%;
+        padding: 15% 0;
     }
     #yt_video {
         width: 100%;
@@ -176,10 +202,10 @@ a {
         line-height: 1.8em;
         vertical-align: top;
     }
-    #animation img.ka {
+    #animation .img.ka {
         width: 25%;
     }
-    #animation img.pon {
+    #animation .img.pon {
         width: 35%;
         display: block;
         margin: 0 auto;

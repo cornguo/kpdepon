@@ -9,7 +9,8 @@ $(document).ready(function () {
     };
 
     // set animation delay by screen type (i think it's buggy)
-    var delay = (null === document.ontouchstart)? [10, 80, 80, 200]:[20,250,100,250];
+    var isTouchable = (null === document.ontouchstart)? true:false;
+    var delay = (isTouchable)? [20, 250, 100, 250]:[10, 80, 80, 200];
 
     // layout
     var animationWidth = $('#animation').width();
@@ -27,16 +28,20 @@ $(document).ready(function () {
             if (0 !== stat[id]) {
                 el.reset(id);
                 setTimeout(function () {
-                    $(id).attr('src', './imgs/down.jpg').addClass('glowing');
+                    $(id).removeClass('init').addClass('down').addClass('glowing');
                 }, delay[0]);
                 stat[id] = setTimeout(function () {
                     el.reset(id);
                 }, delay[1]);
             } else {
-                $(id).attr('src', './imgs/animate.gif').addClass('glowing');
-                setTimeout(function () {
-                    $(id).attr('src', './imgs/down.jpg').addClass('glowing');
-                }, delay[2]);
+                if (!isTouchable) {
+                    $(id).removeClass('init').addClass('animate').addClass('glowing');
+                    setTimeout(function () {
+                        $(id).removeClass('animate').addClass('down').addClass('glowing');
+                    }, delay[2]);
+                } else {
+                    $(id).removeClass('init').addClass('down').addClass('glowing');
+                }
                 stat[id] = setTimeout(function () {
                     el.reset(id);
                 }, delay[3]);
@@ -45,7 +50,7 @@ $(document).ready(function () {
 
         reset: function (id) {
             clearTimeout(stat[id]);
-            $(id).attr('src', './imgs/init.jpg').removeClass('glowing');
+            $(id).removeClass('animate').removeClass('down').removeClass('glowing').addClass('init');
             stat[id] = 0;
         },
 
@@ -54,12 +59,12 @@ $(document).ready(function () {
             '.pon': new Howl({
                 buffer: true,
                 volume: 0.7,
-                urls: ['./convert/pon.ogg', './convert/pon.mp3'],
+                urls: audio_pon,
             }),
             '.ka': new Howl({
                 buffer: true,
                 volume: 0.7,
-                urls: ['./convert/ka.ogg', './convert/ka.mp3'],
+                urls: audio_ka,
             })
         }
 
@@ -179,7 +184,7 @@ $(document).ready(function () {
         }
     });
 
-    var clickType = ((null !== document.ontouchstart)? 'click':'touchstart');
+    var clickType = ((isTouchable)? 'touchstart':'click');
     $('.pon').bind(clickType, function () {controller.play('.pon');});
     $('.ka').bind(clickType, function () {controller.play('.ka');});
 
