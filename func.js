@@ -115,8 +115,8 @@ $(document).ready(function () {
             });
             if ('none' !== $('.upper img.ka:first').css('display')) {
                 $('#yt_video').width(dimension[0] * 2).height(dimension[1] * 1.6).show();
-                $('.ka').width(dimension[0] * 0.8);
-                $('.pon').width(dimension[0] * 1.2);
+                $('.ka').addClass('small');
+                $('.pon').addClass('small');
             } else {
                 $('#yt_video').height(dimension[1] * 2.5).show();
             }
