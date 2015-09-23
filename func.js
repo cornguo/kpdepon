@@ -95,8 +95,8 @@ $(document).ready(function () {
     var yt_player = {
         playBGM: function (vidId) {
             this.player = new YT.Player('yt_video', {
-                height: dimension[0] + 20,
-                width: dimension[1] + 80,
+                height: dimension[0] * 2,
+                width: dimension[1] * 1.6,
                 videoId: vidId,
                 events: {
                     onReady: function(e) {
