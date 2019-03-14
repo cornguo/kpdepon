@@ -1,5 +1,4 @@
 var metronome = {
-
     controller: null,
     audioContext: null,
     nextNoteTime: 0.0,
@@ -9,6 +8,7 @@ var metronome = {
     scheduleAheadTime: 0.2,
     score: '',
     currentNote: 0,
+    unlocked: false,
     isPlaying: false,
     statCallback: function (curr, len) {},
 
@@ -47,6 +47,15 @@ var metronome = {
     },
 
     play: function (score) {
+        if (!this.unlocked) {
+            // play silent buffer to unlock the audio
+            var buffer = this.audioContext.createBuffer(1, 1, 22050);
+            var node = this.audioContext.createBufferSource();
+            node.buffer = buffer;
+            node.start(0);
+            this.unlocked = true;
+        }
+
         if (!this.isPlaying) {
             if (undefined !== score) {
                 this.score = score;
