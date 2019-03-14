@@ -82,7 +82,7 @@ var metronome = {
         this.timerWorker = new Worker('js/metronomeworker.js');
 
         this.timerWorker.onmessage = function(e) {
-            if (e.data == 'tick') {
+            if ('tick' == e.data) {
                 el.scheduler();
             } else {
                 console.log('message:' + e.data);
