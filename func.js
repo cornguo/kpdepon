@@ -128,7 +128,9 @@ $(document).ready(function () {
         },
 
         stopBGM: function () {
-            this.player.stopVideo();
+            if (this.player) {
+                this.player.stopVideo();
+            }
         }
     }
 
