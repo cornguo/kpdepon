@@ -1,5 +1,5 @@
 var timerID = null;
-var interval = 100;
+var interval = 66;
 
 self.onmessage = function (e) {
     if ('start' === e.data) {

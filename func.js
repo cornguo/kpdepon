@@ -158,7 +158,7 @@ $(document).ready(function () {
         // w
         case 87:
             $('#tempo').val(154);
-            yt_player.setBGM('https://www.youtube.com/watch?v=9otAPXJD0KA');
+            yt_player.setBGM('9otAPXJD0KA');
             var test = 'p--p--p-p--p--p-p--p--p-k---k---p--p--p-p--p--p-k---k---p---k---k-k-ppp-k-k-p \
                         pp-k-k-ppp-p-ppp-p-k-k-ppp-k-k-ppp-p-k-k-k-kkk-k-k-k-k-ppp-k-k-ppp-k-k-ppp-p- \
                         ppp-p-p-kkk-ppp-k-kkkkk-kkk-k-k---p-p-k-k-ppp-k-k-ppp-k-k-ppp-p-ppp-p-k-k-ppp \
